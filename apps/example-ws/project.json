@@ -1,0 +1,24 @@
+{
+  "name": "example-ws",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/example-ws/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "example-ws:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "example-ws:build:development"
+        },
+        "production": {
+          "buildTarget": "example-ws:build:production"
+        }
+      }
+    }
+  }
+}
