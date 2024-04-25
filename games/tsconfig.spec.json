@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
+    "outDir": "../dist/out-tsc",
     "module": "commonjs",
     "types": ["jest", "node"]
   },
@@ -10,5 +10,5 @@
     "src/**/*.test.ts",
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
-, "../../games/src/lib/tic-tac-toe.spec.ts", "src/tic-tac-toe.ts"  ]
+, "src/lib/games.ts"  ]
 }

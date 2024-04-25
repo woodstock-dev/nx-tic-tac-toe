@@ -1,0 +1,19 @@
+{
+  "name": "games",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "games/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/games",
+        "main": "games/src/index.ts",
+        "tsConfig": "games/tsconfig.lib.json",
+        "assets": ["games/*.md"]
+      }
+    }
+  }
+}
