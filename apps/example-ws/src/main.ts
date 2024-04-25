@@ -69,7 +69,6 @@ app.post('/api/v1/games/:id/:instanceId/:action', (req, resp) => {
         default:
           console.log('invalid action')
       }
-      console.log(`Responding: ${instanceId} and board: ${instance.state()}`)
       resp.status(HttpStatusCode.Ok);
       resp.json({ gameId: instanceId, board: instance.state() });
     } else {
