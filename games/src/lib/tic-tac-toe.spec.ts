@@ -51,7 +51,7 @@ describe('Test winning combinations', () => {
         console.log(painted);
         const state = game.state();
         expect(state).toBeTruthy();
-        expect(state.spaces[0]).toEqual(X);
+        expect(state.spaces[0].avatar).toEqual(X);
     });
     it('Tests all winning combinations', () => {
         winners.forEach(combo => {
