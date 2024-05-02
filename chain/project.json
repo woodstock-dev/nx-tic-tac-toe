@@ -1,0 +1,26 @@
+{
+  "name": "chain",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "chain/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/chain",
+        "main": "chain/src/index.ts",
+        "tsConfig": "chain/tsconfig.lib.json",
+        "assets": ["chain/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "chain/jest.config.ts"
+      }
+    }
+  }
+}

@@ -18,11 +18,19 @@ export type Board = {
     spaces: Array<Space>
 };
 
+export type Player = {
+    avatar: Avatar
+    name: string
+}
+
 export interface Game {
+    maxPlayers(): number
     isWon(): [boolean, EmptyValue | Avatar]
     isPlayable(): boolean
     isEmpty(x: number): boolean
+    isRegistrationComplete(): boolean
     state(): Board
     reset(): void
+    register(avatar: Avatar): void
     move(avatar: Avatar, x: number): boolean
 }

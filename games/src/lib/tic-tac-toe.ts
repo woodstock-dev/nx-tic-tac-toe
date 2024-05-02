@@ -24,9 +24,11 @@ export const winners = [
 
 export class TicTacToe implements Game {
     currentPlayer: string
+    registeredPlayers: Avatar[];
     board: Board
 
     constructor() {
+        this.registeredPlayers = new Array<Avatar>();
         this.currentPlayer = X
         this.board = {
             maxLength: 9,
@@ -36,6 +38,10 @@ export class TicTacToe implements Game {
             spaces: new Array<Space>()
         }
         this.reset();
+    }
+
+    maxPlayers(): number {
+        return 2;
     }
 
     isWon(): [boolean, EmptyValue | Avatar] {
@@ -69,6 +75,14 @@ export class TicTacToe implements Game {
             return true
         }
         return false
+    }
+
+    isRegistrationComplete(): boolean {
+        return this.maxPlayers() === this.registeredPlayers.length;
+    }
+
+    register(avatar: Avatar) {
+        this.registeredPlayers.push(avatar);
     }
 
     reset() {
