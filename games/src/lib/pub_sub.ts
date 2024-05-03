@@ -1,11 +1,12 @@
+import { Context } from "@examples/chain";
 
 class PublishSubscribe{
-    events: Map<string, Array<(data: unknown) => void>>;
+    events: Map<string, Array<(data: Context) => void>>;
     constructor(){
         this.events = new Map()
     }
     
-    subscribe(event: string, handler: (data: unknown) => void) {
+    subscribe(event: string, handler: (data: Context) => void) {
         if(!this.events.has(event)){
             this.events.set(event, [])
         }
@@ -18,7 +19,7 @@ class PublishSubscribe{
         }
     }
 
-    unsubscribe(event: string, handler: (data: unknown) => void){
+    unsubscribe(event: string, handler: (data: Context) => void){
         if(this.events.has(event)) {
             const e = this.events.get(event);
             if (e) {
@@ -28,7 +29,7 @@ class PublishSubscribe{
         }
     }
 
-    publish(event: string, data: unknown){
+    publish(event: string, data: Context){
         if(this.events.has(event)){
             const e = this.events.get(event);
             if (e) {
