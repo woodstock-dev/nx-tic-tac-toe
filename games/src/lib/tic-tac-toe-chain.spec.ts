@@ -60,7 +60,11 @@ const actionPublisher = CommandBuilder.build((context: Context) => {
     return true;
 })
 
+// This chain fails fast
 const moveChain = ChainBuilder.build(false, [validateMove, move]);
+
+// This chain continues executing even after a failure, this does not mean
+// that the following commands will exectute, only that they will try to.
 const playChain = ChainBuilder.build(true, [moveChain, evaluate, actionPublisher]);
 
 describe('A game played with a chain and scubscribers', () => {
